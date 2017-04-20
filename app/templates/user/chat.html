@@ -1,1 +1,10 @@
 <h1>Chat Room</h1>
+<div class="container">
+  <form ng-submit="sendMsg()">
+    <div class="form-group">
+      <label>Your message</label>
+      <textarea class="form-control" rows="3" ng-model="newMsg"></textarea>
+      <input type="submit" class="btn btn-default">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+angular.module('app')
+    .service('MsgService', function($http) {
+        return {
+            send: function (newMsg) {
+                return $http.post('/msg', newMsg);
+            }
+        };
+    });
