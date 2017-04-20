@@ -6,7 +6,6 @@ let router = express.Router();
 
 module.exports = (app) => {
 
-
     var msg = new Msg();
 
     router.get('/', msg.findAll);

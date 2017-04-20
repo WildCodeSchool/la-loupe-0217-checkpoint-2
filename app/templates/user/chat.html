@@ -1,7 +1,8 @@
 <h1>Chat Room</h1>
 <div class="container">
-  <div ng-repeat="msg in msgs">
+  <div ng-repeat="msg in msgs | orderBy:createdAt">
     <label>{{ msg.author.pseudo }}</label>
+    <span>{{msg.createdAt  | date:"MM/dd/yyyy 'à' H:mm"}}</span>
     <p>{{ msg.content }}</p>
   </div>
   <form ng-submit="sendMsg()">
