@@ -3,7 +3,7 @@
   <div ng-repeat="msg in msgs | orderBy:createdAt">
     <label>{{ msg.author.pseudo }}</label>
     <span>{{msg.createdAt  | date:"MM/dd/yyyy 'à' H:mm"}}</span>
-    <p>{{ msg.content }}</p>
+    <div marked="msg.content"></div>
     <a ng-click="likeMsg(msg._id, $index)">J'aime</a>
     <span>{{ msg.liked.length}}</span>
   </div>
@@ -14,4 +14,5 @@
       <input type="submit" class="btn btn-default">
     </div>
   </form>
+  <div marked="newMsg"></div>
 </div>

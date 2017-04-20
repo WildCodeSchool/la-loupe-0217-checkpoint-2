@@ -4,9 +4,8 @@ import User from './user.js';
 const likeSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-  },
-  _id : false
+    ref: 'User'
+  }
 });
 
 const msgSchema = new mongoose.Schema({
@@ -33,7 +32,7 @@ export default class Msg {
     model.create(req.body,
       function(err, msg) {
         if(err || !msg) {
-          res.sendStatus(500)
+          res.status(500).send(err.message);
         } else {
           res.json(msg)
         }
@@ -57,8 +56,7 @@ export default class Msg {
       model.findByIdAndUpdate(
         req.params.id,
         {$push: {"liked": {author: req.body.userId}}},
-        {safe: true, upsert: true},
-        function(err, msg) {
+          function(err, msg) {
           if (err) {
             res.status(500).send(err.message);
           } else if (!msg) {
