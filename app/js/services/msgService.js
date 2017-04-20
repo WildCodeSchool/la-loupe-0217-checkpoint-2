@@ -6,6 +6,9 @@ angular.module('app')
             },
             findAll: function () {
                 return $http.get("/msg")
+            },
+            like: function (msgId, userId) {
+                return $http.post("/msg/" + msgId, {userId: userId})
             }
         };
     });

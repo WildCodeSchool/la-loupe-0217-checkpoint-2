@@ -22,4 +22,12 @@ angular.module('app')
     })
   }
 
+  $scope.likeMsg = function (id, index) {
+    MsgService.like(id, $scope.user._id).then(function(res){
+      $scope.msgs[index].liked.push({author: $scope.user._id})
+    }, function (err) {
+      // oups
+    });
+  };
+
 });
