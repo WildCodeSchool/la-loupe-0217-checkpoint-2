@@ -3,6 +3,9 @@ angular.module('app')
         return {
             send: function (newMsg) {
                 return $http.post('/msg', newMsg);
+            },
+            findAll: function () {
+                return $http.get("/msg")
             }
         };
     });

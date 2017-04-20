@@ -1,5 +1,9 @@
 <h1>Chat Room</h1>
 <div class="container">
+  <div ng-repeat="msg in msgs">
+    <label>{{ msg.author.pseudo }}</label>
+    <p>{{ msg.content }}</p>
+  </div>
   <form ng-submit="sendMsg()">
     <div class="form-group">
       <label>Your message</label>

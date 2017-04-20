@@ -31,4 +31,16 @@ export default class Msg {
       })
   }
 
+  findAll (req, res) {
+    model.find({}).populate('author').exec(function (err, msgs) {
+      if (err) {
+        res.status(500).send(err.message);
+      } else if (!msgs) {
+        res.sendStatus(404);
+      } else {
+        res.json(msgs)
+      }
+    })
+  }
+
 };

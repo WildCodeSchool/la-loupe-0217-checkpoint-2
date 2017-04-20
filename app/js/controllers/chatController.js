@@ -4,10 +4,19 @@ angular.module('app')
 
   $scope.newMsg = '';
 
+  $scope.msgs = [];
+
+  MsgService.findAll().then(function(res){
+    $scope.msgs = res.data;
+  }, function (err) {
+    // oups
+  })
+
   $scope.sendMsg = function () {
     MsgService.send({content: $scope.newMsg, author: $scope.user._id}).then(function(res){
-      console.log(res.data);
       $scope.newMsg = '';
+      res.data.author = $scope.user;
+      $scope.msgs.push(res.data);
     }, function (err) {
       // oups
     })

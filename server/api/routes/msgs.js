@@ -9,6 +9,8 @@ module.exports = (app) => {
 
     var msg = new Msg();
 
+    router.get('/', msg.findAll);
+
     router.post('/', msg.create);
 
     app.use('/msg', router);
