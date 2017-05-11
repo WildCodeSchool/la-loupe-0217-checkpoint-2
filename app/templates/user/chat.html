@@ -6,7 +6,7 @@
             <h1>Chat Room</h1>
             <form ng-submit="addMessage()">
                 <p>Message : </p><textarea required name="name" rows="4" cols="80" ng-model="message"></textarea>
-                <p>User : {{user.email}}</p> <input type="text" name="" ng-model="userinput">
+                <p>User : {{user.email}}</p> <input type="text" name=""  ng-model="userinput">
                 <p>{{date | date:'yyyy-MM-dd'}}</p>
                 <button type="submit" name="button">Add</button>
             </form>
